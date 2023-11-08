@@ -5,13 +5,32 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <script src="https://kit.fontawesome.com/771f6f27c6.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* 画面の高さいっぱいに設定 */
+      }
+
+      footer {
+        background-color: #d0af4c;
+        padding: 15px; /* 適切な余白を設定 */
+        text-align: center;
+      }
+    </style>
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
+    
     <%= yield %>
+    
+    <%= render 'layouts/footer' %>
   </body>
 </html>
