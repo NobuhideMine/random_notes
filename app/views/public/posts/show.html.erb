@@ -1,2 +1,32 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <table>
+                <tr>
+                    <th>
+                        <%= link_to user_path(@post.user) do %>
+                            <%= image_tag @post.user.get_profile_image(80,80) %><br>
+                            <%= @user.name %>
+                        <% end %>
+                        <span><%= @post.updated_at.strftime('20%y.%m/%d') %> 更新</span>
+                    </th>
+                </tr>
+                <tr>
+                    <td><strong><%= @post.title %></strong></td>
+                </tr>
+                    <td style= "width:100%; height:200px;"><%= @post.body %></td>
+                </tr>
+            </table>        
+                         <% if @post.user == current_user %>
+                             <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-success" %>
+                         <% end %>
+                 
+                        <% if @post.user == current_user %>
+                         <%= link_to "Destroy", post_path(@post), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
+                        <% end %>
+                    
+                
+            
+        </div>
+    </div>
+</div>
