@@ -5,7 +5,7 @@ class Public::PostsController < ApplicationController
   
   def index
     @post = Post.new
-    @posts = Post.all.order(params[:sort])
+    @posts = Post.all.order(created_at: :desc)
   end
   
   def new
@@ -14,11 +14,12 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
     @post_comment = PostComment.new
   end
   
   def create
-    @post = Post.new(book_params)
+    @post = Post.new(post_params)
     @post.user_id = current_user.id
     
     if @post.save
@@ -34,9 +35,9 @@ class Public::PostsController < ApplicationController
   end
   
   def update
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "You have updated book successfully." 
+      redirect_to post_path(@post.id), notice: "You have updated book successfully." 
     else
       render "edit"
     end
@@ -50,7 +51,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :user_id)
   end
 
 
