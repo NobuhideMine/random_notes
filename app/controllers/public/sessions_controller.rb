@@ -11,13 +11,17 @@ class Public::SessionsController < Devise::SessionsController
     redirect_to user_path(user), notice: "guestuserでログインしました。"
   end
   
+  def after_sign_out_path_for(resource)
+    new_admin_session_path
+  end
+  
   protected
   
   def user_state
     @user = User.find_by(email: params[:user][:email])
     if @user
       if @user.valid_password?(params[:user][:password]) && (@user.is_active == false)
-        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください"
+        flash[:notice] = "停止中です。再度ご登録をしてご利用ください"
         redirect_to new_user_registration_path
       else
         flash[:notice] = "項目を入力してください"

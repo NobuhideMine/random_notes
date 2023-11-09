@@ -1,9 +1,10 @@
 class Admin::PostsController < ApplicationController
   def index
-    @posts = Post.page(params[:page]).per(8)
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 end
