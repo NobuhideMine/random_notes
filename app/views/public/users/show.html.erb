@@ -14,7 +14,7 @@
                           <i class="fa-solid fa-file-pen ml-3">投稿する</i>
                       <% end %>  
                 　<% end %>
-                　<% unless @user.guest_user? %>
+                　<% if @user.guest_user? %>
                       <%= link_to "",edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user.id}" %>
                 　<% end %>
               <tr>
