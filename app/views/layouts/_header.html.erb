@@ -51,6 +51,11 @@
                   <% end %>
                 </li>
                 <li class="nav-item mx-2 my-4">
+                  <%= link_to users_guest_sign_in_path, method: :post, style: "color: black;" do %>
+                    ゲストログイン（閲覧用）
+                  <% end %>
+                </li>
+                <li class="nav-item mx-2 my-4">
                   <%= link_to new_user_registration_path, style: "color: black;" do %>
                     新規登録
                   <% end %>

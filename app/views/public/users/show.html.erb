@@ -4,7 +4,7 @@
             <table class='table'>
               <tr>
                   <%= image_tag @user.get_profile_image(80,80) %>
-              </tr>     
+              </tr>
                   <% if current_user == @user %>
                       <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary ml-3" do %>
                         <i class="fas fa-user-cog"></i>
@@ -13,6 +13,9 @@
                       <%= link_to new_post_path do %>
                           <i class="fa-solid fa-file-pen ml-3">投稿する</i>
                       <% end %>  
+                　<% end %>
+                　<% unless @user.guest_user? %>
+                      <%= link_to "",edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user.id}" %>
                 　<% end %>
               <tr>
 	              <th>name</th>
