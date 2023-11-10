@@ -14,7 +14,7 @@
                 <tr>
                     <td><strong><%= @post.title %></strong></td>
                 </tr>
-                    <td style= "width:100%; height:200px;"><%= @post.body %></td>
+                    <td style= "width:100%; height:300px;"><%= markdown(@post.body).html_safe %></td>
                 </tr>
             </table>        
                          <% if @post.user == current_user %>
