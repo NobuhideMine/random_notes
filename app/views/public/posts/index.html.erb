@@ -13,6 +13,10 @@
                             <% end %>
                         </td>
                         <td><%= link_to post.title, post_path(post.id) %></td>
+                        <td>
+                            <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+                            <%= post.favorites.count %>
+                        </td>
                     </tr>
                     <% end %>
                 </tbody>
