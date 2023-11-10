@@ -9,6 +9,10 @@
                             <%= @user.name %>
                         <% end %>
                         <span><%= @post.updated_at.strftime('20%y.%m/%d') %> 更新</span>
+                        <div id = "favorite_btn_<%= @post.id %>" %>  
+                            <%= render "/public/favorites/btn", post: @post %>
+                        </div>
+                        
                     </th>
                 </tr>
                 <tr>
