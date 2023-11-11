@@ -25,6 +25,12 @@ class Public::UsersController < ApplicationController
     end
   end
   
+  def favorited_post
+    @favorited_post = Post.favorited_posts(current_user, params[:page], 8)
+  end
+  
+  
+  
   private
 
   def user_params
