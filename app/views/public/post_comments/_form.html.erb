@@ -1,0 +1,5 @@
+
+<%= form_with(model: [post, post_comment], local: false) do |f| %>
+    <%= f.text_area :comment, style: "width:100%;", placeholder: "コメントをここに" %>
+    <%= f.submit "To comment" %>
+<% end %>
