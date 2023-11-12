@@ -12,26 +12,31 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
- 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "homes#top"
-    get 'homes/about' => "public/homes#about", as: :about
-  
-  
-  namespace :public do
-    
-    resources :users, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:index, :show, :edit, :new, :create, :destroy]
-    
+  #ゲストログイン用
+  devise_scope :user do
+    post "users/guest_sign_in", to: 'public/sessions#guest_sign_in'
   end
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
+  root to: "public/homes#top"
+    get 'homes/about' => "public/homes#about", as: :about
+    
   namespace :admin do
     
     get 'homes/top' => 'homes#top'
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show]
     
+  end  
+  
+  scope module: :public do
+    
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :posts, only: [:index, :show, :edit, :new, :create, :update, :destroy]
+    
   end
+  
+  
 
   
   
