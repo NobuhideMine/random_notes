@@ -4,7 +4,15 @@ class Public::UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
   
   def index
-    @users = User.all.page(params[:page]).per(8)
+   
+    
+    @q = User.ransack(params[:q])
+    if params[:q].present?
+      @users = @q.result(distinct: true).page(params[:page]).per(8)
+    else
+      @users = User.all.page(params[:page]).per(8)
+      
+    end
   end
 
   def show
