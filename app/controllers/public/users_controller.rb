@@ -10,6 +10,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    
   end
 
   def edit
@@ -24,6 +25,12 @@ class Public::UsersController < ApplicationController
       render "edit"
     end
   end
+  
+  def favorited_post
+    @favorited_post = Post.favorited_posts(current_user, params[:page], 8)
+  end
+  
+  
   
   private
 

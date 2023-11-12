@@ -5,7 +5,8 @@ class Public::PostsController < ApplicationController
   
   def index
     @post = Post.new
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(8)
+    #@posts = Post.order(created_at: :desc).limit(8).page(params[:page])
+    @posts = Post.order(created_at: :desc).page(params[:page]).per(8)
   end
   
   def new
