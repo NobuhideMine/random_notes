@@ -15,9 +15,7 @@
                       <% end %>  
                 　<% end %>
                   
-                　<% if @user.guest_user? %>
-                      <%= link_to "",edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@user.id}" %>
-                　<% end %>
+                　
               <tr>
 	              <th>name</th>
 	              <td><%= @user.name %></td>
