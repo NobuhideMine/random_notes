@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show]
     
+    
   end  
   
   scope module: :public do
@@ -46,6 +47,8 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       
     end
+    
+   
     
   end
   
