@@ -27,12 +27,28 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show]
     
+    
   end  
   
   scope module: :public do
     
-    resources :users, only: [:index, :show, :edit, :update]
-    resources :posts, only: [:index, :show, :edit, :new, :create, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update] do
+      resource :relationships, only: [:create, :destroy]
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers" => "relationships#followers", as: "followers"
+      
+      member do
+        get :favorited_post
+      end  
+    end
+    
+    resources :posts, only: [:index, :show, :edit, :new, :create, :update, :destroy] do
+      resource :favorites, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
+      
+    end
+    
+   
     
   end
   

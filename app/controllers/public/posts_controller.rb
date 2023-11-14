@@ -4,8 +4,16 @@ class Public::PostsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   
   def index
+   
     @post = Post.new
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(8)
+   
+    @q = Post.ransack(params[:q])
+    if params[:q].present?
+      @posts = @q.result(distinct: true).page(params[:page]).per(8)
+    else
+      @posts = Post.order(created_at: :desc).page(params[:page]).per(8)
+    end
+    
   end
   
   def new
@@ -24,7 +32,7 @@ class Public::PostsController < ApplicationController
     
     if @post.save
       
-    redirect_to post_path(@post), notice: "You have created book successfully." 
+    redirect_to post_path(@post), notice: "You have created post successfully." 
     else
     @posts = Post.all
     render 'index'
@@ -35,9 +43,9 @@ class Public::PostsController < ApplicationController
   end
   
   def update
-    #@post = Post.find(params[:id])
+    
     if @post.update(post_params)
-      redirect_to post_path(@post.id), notice: "You have updated book successfully." 
+      redirect_to post_path(@post.id), notice: "You have updated post successfully." 
     else
       render "edit"
     end

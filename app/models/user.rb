@@ -54,6 +54,22 @@ class User < ApplicationRecord
     email == GUEST_USER_EMAIL
   end
   
+  # ransack用の検索対象フィールドを指定する
+  def self.searchable_attributes
+    %w[name]
+  end
+  searchable_attributes.each do |field|
+    scope "search_by_#{field}", ->(keyword) { where("#{field} LIKE ?", "%#{keyword}%") }
+  end
+  
+  def self.ransackable_attributes(auth_object = nil)
+   ["name"] # 検索可能な属性名を指定
+  end
+  
+  def self.ransackable_associations(auth_object = nil)
+    [] # 検索可能な関連名を指定
+  end
+
 end
 
 

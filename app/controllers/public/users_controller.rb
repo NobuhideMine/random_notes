@@ -4,12 +4,21 @@ class Public::UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
   
   def index
-    @users = User.all.page(params[:page]).per(8)
+   
+    
+    @q = User.ransack(params[:q])
+    if params[:q].present?
+      @users = @q.result(distinct: true).page(params[:page]).per(8)
+    else
+      @users = User.all.page(params[:page]).per(8)
+      
+    end
   end
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    
   end
 
   def edit
@@ -24,6 +33,12 @@ class Public::UsersController < ApplicationController
       render "edit"
     end
   end
+  
+  def favorited_post
+    @favorited_post = Post.favorited_posts(current_user, params[:page], 8)
+  end
+  
+  
   
   private
 
