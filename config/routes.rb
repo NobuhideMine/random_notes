@@ -48,7 +48,7 @@ Rails.application.routes.draw do
       
     end
     
-   
+   get "/favicon.ico"
     
   end
   
