@@ -18,7 +18,7 @@ module MarkdownHelper
       fenced_code_blocks:  true,
       autolink:            true,
       lax_spacing:         true,
-      space_after_headers: true,
+      space_after_headers: true
     }
     
 

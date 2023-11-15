@@ -21,7 +21,8 @@
                         <tr>
                             <td>
                                 <%= link_to user_path(post.user.id) do %>
-                                    <%= image_tag post.user.get_profile_image(70,70) %>
+                                    <%= image_tag post.user.get_profile_image(70,70), 
+                                            style: "border-radius: 50%; width: 70px; height: 70px; object-fit:cover;" %>
                                     <%= post.user.name %>
                                 <% end %>
                             </td>
