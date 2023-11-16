@@ -8,7 +8,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to user_path(user), notice: "guestuserでログインしました。"
+    redirect_to user_path(user), notice: "I logged in as a guest user."
   end
   
   def after_sign_out_path_for(resource)
@@ -21,13 +21,13 @@ class Public::SessionsController < Devise::SessionsController
     @user = User.find_by(email: params[:user][:email])
     if @user
       if @user.valid_password?(params[:user][:password]) && (@user.is_active == false)
-        flash[:notice] = "停止中です。再度ご登録をしてご利用ください"
+        flash[:notice] = "It is currently stopped. Please register again and use the service."
         redirect_to new_user_registration_path
       else
-        flash[:notice] = "項目を入力してください"
+        flash[:notice] = "Please enter the item"
       end
     else
-      flash[:notice] = "該当するユーザーが見つかりません"
+      flash[:notice] = "No matching users found"
     end
   end
 

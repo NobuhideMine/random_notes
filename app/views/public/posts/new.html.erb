@@ -3,12 +3,12 @@
         <div class="col-8">
             <%= form_with model: @post do |f| %>
                 <p>Title</p>
-                <%= f.text_field :title, style: "width:100%;", placeholder:'タイトル', maxlength: '40' %>
+                <%= f.text_field :title, style: "width:100%;", placeholder:'Title', maxlength: '40' %>
     
-                <p>Opinion</p>
-                <%= f.text_area :body, style: "width:100%; height:300px;", placeholder:'テキストを入力', maxlength: '100000' %>
+                <p>Posted article</p>
+                <%= f.text_area :body, style: "width:100%; height:300px;", placeholder:'Text', maxlength: '100000' %>
     
-                <%= f.submit "投稿する" %>
+                <%= f.submit "Post" %>
             <% end %>
         </div>
     </div>

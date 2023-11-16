@@ -1,9 +1,9 @@
 <header>
-    <div class="containe-fluid" style="background-color: #d0af4c; color: #eaedf7;">
+    <div class="containe-fluid" style="background-color: #c7b370; color: #eaedf7;">
         <div class="row mx-auto border-bottom">
             <div class="col-2 my-4">
                 <%= link_to root_path, style: "color: black;" do %>
-                  Top
+                  <i class="fa-regular fa-hand-point-left">Top</i>
                 <% end %>
             </div>
             
@@ -13,66 +13,66 @@
                 <% if admin_signed_in? %>
                   <li class="nav-item mx-2 my-4">
                     <%= link_to admin_posts_path, style: "color: black;" do %>
-                      Posts
+                      <i class="fa-regular fa-note-sticky">Posts</i
                     <% end %>
                   </li>
                   <li class="nav-item mx-2 my-4">
                     <%= link_to  admin_users_path, style: "color: black;" do %>
-                      Users
+                      <i class="fa-solid fa-user-pen">Users</i>
                     <% end %>
                   </li>
                   <li class="nav-item mx-2 my-4">
                     <%= link_to  destroy_admin_session_path, method: :delete, style: "color: black;"  do %>
-                      ログアウト
+                      <i class="fa-solid fa-person-booth">Logout</i>ト
                     <% end %>
                   </li>
                           
                 <% elsif user_signed_in? %>
                   <li class="nav-item mx-2 my-4">
                     <%= link_to new_post_path, style: "color: black;" do %>
-                      <i class="fa-solid fa-file-pen ml-3">投稿する</i>
+                      <i class="fa-solid fa-file-pen ml-3">Create Post</i>
                     <% end %>  
                   </li>
                   <li class="nav-item mx-2 my-4">
                     <%= link_to users_path, style: "color: black;" do %>
-                      Users
+                      <i class="fa-solid fa-user-pen">Users</i>
                     <% end %>
                     </li>
                 <li class="nav-item mx-2 my-4">
                   <%= link_to posts_path, style: "color: black;" do %>
-                    Posts
+                    <i class="fa-regular fa-note-sticky">Posts</i>
                   <% end %>
                 </li>
                 <li class="nav-item mx-2 my-4">
                   <%= link_to destroy_user_session_path, method: :delete, style: "color: black;" do %>
-                    ログアウト
+                    <i class="fa-solid fa-person-booth">Logout</i>
                   <% end %>
                 </li>
               <!--customer login時-->  
               <% else %>
                 <li class="nav-item mx-2 my-4">
                   <%= link_to about_path, style: "color: black;" do %>
-                    About
+                    <i class="fa-solid fa-circle-exclamation">About</i>
                   <% end %>
                 </li>
                 <li class="nav-item mx-2 my-4">
                   <%= link_to users_guest_sign_in_path, method: :post, style: "color: black;" do %>
-                    ゲストログイン（閲覧用）
+                    <i class="fa-solid fa-person">Guest login</i>
                   <% end %>
                 </li>
                 <li class="nav-item mx-2 my-4">
                   <%= link_to new_user_registration_path, style: "color: black;" do %>
-                    新規登録
+                    <i class="fa-solid fa-user-plus">User Signup</i>
                   <% end %>
                 </li>
                 <li class="nav-item mx-2 my-4">
                   <%= link_to new_user_session_path, style: "color: black;" do %>
-                    ログイン
+                    <i class="fa-solid fa-person-walking-luggage">User login</i>
                   <% end %>
                 </li>
                 <li class="nav-item mx-2 my-4">
                   <%= link_to new_admin_session_path, style: "color: black;" do %>
-                    管理者ログイン
+                    <i class="fa-solid fa-screwdriver-wrench">Admin login</i>
                   <% end %>
                 </li>
               <% end %>  

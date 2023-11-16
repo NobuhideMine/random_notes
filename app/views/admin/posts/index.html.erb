@@ -1,35 +1,41 @@
 <div class="container mt-2">
     <h2>Post Index</h2>
-    <div class="row mx-auto">
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>name</th>
-                    <th>post</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @posts.each do |post| %>
-                <tr>
-                    <td>
-                        <%= link_to admin_user_path(post.user.id) do %>
-                            <%= image_tag post.user.get_profile_image(70,70) %>
-                        <% end %>
-                    </td>
-                    <td>
-                        <%= link_to admin_user_path(post.user.id) do %>
-                            <%= post.user.name %>
-                        <% end %>
-                    </td>
-                    <td><%= link_to post.title, admin_post_path(post.id) %></td>
-                </tr>
-                <% end %>
-            </tbody>
-        </table>
-    </div>        
-    <div>
-        <%= paginate @posts %>
+    <div class="row">
+        <div class="col-md-10 mx-auto justify-content-center">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>name</th>
+                        <th>post</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @posts.each do |post| %>
+                    <tr>
+                        <td>
+                            <%= link_to admin_user_path(post.user.id) do %>
+                                <%= image_tag post.user.get_profile_image(80,80) %>
+                            <% end %>
+                        </td>
+                        <td>
+                            <%= link_to admin_user_path(post.user.id) do %>
+                                <%= post.user.name %>
+                            <% end %>
+                        </td>
+                        <td><%= link_to post.title, admin_post_path(post.id) %></td>
+                        <td><%= render '/public/post_comments/counter', post: post %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        <div>
+            <%= paginate @posts %>
+        </div>
+        
+        
+        </div>        
+        
     </div>
-    
 </div>

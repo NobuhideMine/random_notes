@@ -19,7 +19,7 @@
             <table class="my-2">    
                 <tr>
                     <td>
-                        <h1><strong class="mx-4"><%= @post.title %></strong></h1><%= @post.updated_at.strftime('20%y.%m/%d') %> 更新
+                        <h3><strong class="mx-4"><%= @post.title %></strong></h3><%= @post.updated_at.strftime('20%y.%m/%d') %> update
                     </td>
                 </tr>
                 <tr>
@@ -29,7 +29,8 @@
             <div class="my-3">
                 <% if @post.user == current_user %>
                     <%= link_to "Edit", edit_post_path(@post.id), class: "btn btn-success" %>
-                    <%= link_to "Destroy", post_path(@post), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
+                    <%= link_to "Destroy", post_path(@post), class: "btn btn-danger",
+                                method: :delete, "data-confirm" => "Do you really want to delete this?" %>
                 <% end %>
             </div>
 

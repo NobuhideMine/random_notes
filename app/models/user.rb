@@ -69,7 +69,9 @@ class User < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     [] # 検索可能な関連名を指定
   end
-
+    
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :introduction, length: { maximum: 50 }  
 end
 
 

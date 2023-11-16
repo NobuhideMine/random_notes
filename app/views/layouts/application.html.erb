@@ -19,7 +19,7 @@
       }
 
       footer {
-        background-color: #d0af4c;
+        background-color: #c7b370;
         padding: 15px; /* 適切な余白を設定 */
         text-align: center;
       }
@@ -28,7 +28,7 @@
 
   <body>
     <%= render 'layouts/header' %>
-    
+    <%= flash[:notice] %>
     <%= yield %>
     
     <%= render 'layouts/footer' %>

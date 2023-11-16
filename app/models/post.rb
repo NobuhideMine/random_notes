@@ -32,4 +32,7 @@ class Post < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     [] # 検索可能な関連名を指定
   end
+  
+   validates :title,presence:true
+   validates :body,presence:true
 end

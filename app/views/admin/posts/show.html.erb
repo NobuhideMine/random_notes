@@ -8,7 +8,11 @@
                             <%= image_tag @post.user.get_profile_image(60,60) %><br>
                             <%= @user.name %>
                         <% end %>
-                        <span><%= @post.updated_at.strftime('20%y.%m/%d') %> 更新</span>
+                        <div>
+                            <%= @post.updated_at.strftime('20%y.%m/%d') %> 更新
+                            <%= render '/public/post_comments/counter', post: @post %>
+                        </div>
+                        
                     </th>
                 </tr>
                 <tr>

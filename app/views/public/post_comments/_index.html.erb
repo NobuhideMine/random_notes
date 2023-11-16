@@ -9,6 +9,8 @@
                         style: "border-radius: 50%; width: 70px; height: 70px; object-fit:cover;" %>
                 <%= post_comment.user.name %>
                 <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+            </td>
+            <td>
                 <%= markdown(post_comment.comment).html_safe %>
             </td>
         </tr>
