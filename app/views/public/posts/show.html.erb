@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row px-3">
+    <div class="row px-3 mt-2">
         <%= link_to user_path(@post.user) do %>
             <%= image_tag @post.user.get_profile_image(80,80), 
                     style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover;" %><br>
@@ -14,8 +14,8 @@
         
     </div>
     
-    <div class="row mt-3 px-3">
-        <div class="col">
+    <div class="row mt-3 mx-auto px-3 justify-content-center">
+        <div class="col-10 md-3">
             <table class="my-2">    
                 <tr>
                     <td>
@@ -36,8 +36,10 @@
             <div class="post-comments-index">
                 <%= render '/public/post_comments/index', post: @post %>
             </div>
-            
+            <div class="comments-form my-2">
                 <%= render '/public/post_comments/form', post: @post, post_comment: @post_comment %>
+            </div>
+                
                   
                 
             
