@@ -9,7 +9,11 @@
                 <% end %>
             </div>
             <%= render "public/users/index", users: @users %>
-            <%= paginate @users %>
+            
+            <div class="d-flex justify-content-center">
+                <%= paginate @users %>
+            </div>
+            
         </div>
     </div>
 </div>

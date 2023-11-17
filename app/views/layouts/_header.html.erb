@@ -1,16 +1,18 @@
 <header>
-    <div class="containe-fluid" style="background-color: #c7b370; color: #eaedf7;">
-        <div class="row mx-auto border-bottom">
-            <div class="col-2 my-4">
-                <%= link_to root_path, style: "color: black;" do %>
-                  <i class="fa-regular fa-hand-point-left">Top</i>
-                <% end %>
-            </div>
-            
-            <div class="col-8">
-              <ul class="row justify-content-end my-2 list-unstyled">
-                <!--admin -->
-                <% if admin_signed_in? %>
+  <nav class="navbar navbar-expand-md navbar-light border-bottom" style="background-color: #c7b370; color: #eaedf7;">
+        <div class="container-fluid ">
+          <a class="navbar-brand" href="<%= root_path %>" style="color: black;">
+              <div style= "font-family: Franklin Gothic;" >RANDOM NOTES</div>
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                  <!--admin -->
+                  <% if admin_signed_in? %>
                   <li class="nav-item mx-2 my-4">
                     <%= link_to admin_posts_path, style: "color: black;" do %>
                       <i class="fa-regular fa-note-sticky">Posts</i
@@ -23,11 +25,16 @@
                   </li>
                   <li class="nav-item mx-2 my-4">
                     <%= link_to  destroy_admin_session_path, method: :delete, style: "color: black;"  do %>
-                      <i class="fa-solid fa-person-booth">Logout</i>ト
+                      <i class="fa-solid fa-person-booth">Logout</i>
                     <% end %>
                   </li>
                           
                 <% elsif user_signed_in? %>
+                  <li class="nav-item mx-2 my-4">
+                    <%= image_tag current_user.get_profile_image(70, 70), style: "border-radius: 50%; width: 70px; height: 70px; object-fit: cover;" %>
+                    <%= current_user.name %>
+                  </li>
+                  
                   <li class="nav-item mx-2 my-4">
                     <%= link_to new_post_path, style: "color: black;" do %>
                       <i class="fa-solid fa-file-pen ml-3">Create Post</i>
@@ -48,7 +55,7 @@
                     <i class="fa-solid fa-person-booth">Logout</i>
                   <% end %>
                 </li>
-              <!--customer login時-->  
+              <!--user login時-->  
               <% else %>
                 <li class="nav-item mx-2 my-4">
                   <%= link_to about_path, style: "color: black;" do %>
@@ -77,7 +84,7 @@
                 </li>
               <% end %>  
               </ul>
-            </div>
+          </div>
         </div>
-    </div>
+    </nav>
 </header>

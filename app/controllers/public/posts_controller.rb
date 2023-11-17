@@ -18,6 +18,7 @@ class Public::PostsController < ApplicationController
   
   def new
     @post = Post.new
+    
   end
 
   def show
@@ -31,11 +32,10 @@ class Public::PostsController < ApplicationController
     @post.user_id = current_user.id
     
     if @post.save
-      
     redirect_to post_path(@post), notice: "You have created post successfully." 
     else
-    @posts = Post.all
-    render 'index'
+    
+    render 'new'
     end
   end
 
@@ -53,7 +53,7 @@ class Public::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: "your post has been deleted."
+    redirect_to posts_path, notice: "our post has been deleted."
   end
 
   private
