@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Your Ruby code goes here
+
 class DeviseCreateUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
@@ -13,7 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
 
       ## Rememberable
       t.datetime :remember_created_at
-      
+
       t.string :name
       t.string :introduction
       t.boolean :is_active, null: false, default: true

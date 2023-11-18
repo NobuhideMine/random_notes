@@ -4,15 +4,18 @@
 <% post.post_comments.each do |post_comment| %>
     <table class="table table-hover mt-3">
         <tr>
-            <th class="mx-2">
-                <%= image_tag post_comment.user.get_profile_image(100,100) %>
+            <td class="mx-2">
+                <%= image_tag post_comment.user.get_profile_image(100,100), 
+                        style: "border-radius: 50%; width: 70px; height: 70px; object-fit:cover;" %>
                 <%= post_comment.user.name %>
                 <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-                <%= post_comment.comment %>
-            </th>
+            </td>
+            <td>
+                <%= markdown(post_comment.comment).html_safe %>
+            </td>
         </tr>
         <tr>
-            <th>
+            <td>
                 <% if post_comment.user == current_user %>
                 <%= link_to "Destroy", post_post_comment_path(post, post_comment), 
                             method: :delete, 
@@ -20,7 +23,7 @@
                             remote: true, 
                             data: { "turbolinks" => false } %>
                 <% end %>
-            </th>
+            </td>
         </tr>
     </table>
 <% end %>

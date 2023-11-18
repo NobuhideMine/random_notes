@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Your Ruby code goes here
+
 class Public::FavoritesController < ApplicationController
     def create
      @post = Post.find(params[:post_id])
@@ -6,9 +10,8 @@ class Public::FavoritesController < ApplicationController
      #redirect_to request.referer
      #render 'replace_btn'
     end
-    
+
     def destroy
-        
     @post = Post.find(params[:post_id])
     @favorite = current_user.favorites.find_by(post_id: @post.id)
     @favorite.destroy

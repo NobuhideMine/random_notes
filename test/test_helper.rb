@@ -1,4 +1,8 @@
-ENV['RAILS_ENV'] ||= 'test'
+# frozen_string_literal: true
+
+# Your Ruby code goes here
+
+ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 

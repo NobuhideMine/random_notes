@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
+# Your Ruby code goes here
+
 Admin.create!(
-   email: 'admin@test',
-   password: 'testcase'
+   email: "admin@test",
+   password: "testcase"
 )
 
 

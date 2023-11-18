@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Your Ruby code goes here
+
 Spring.watch(
   ".ruby-version",
   ".rbenv-vars",

@@ -3,16 +3,18 @@
         <div class="col-8">
             <table class='table'>
               <tr>
-                  <%= image_tag @user.get_profile_image(80,80) %>
+                  <%= image_tag @user.get_profile_image(80,80),
+                          style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover;" %>
               </tr>
                   <% if current_user == @user %>
                       <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary ml-3" do %>
                         <i class="fas fa-user-cog"></i>
                       <% end %>
                
-                      <%= link_to new_post_path do %>
-                          <i class="fa-solid fa-file-pen ml-3">投稿する</i>
-                      <% end %>  
+                      <%= link_to  favorited_post_user_path(current_user), data: { "turbolinks" => false } do %>
+                        <i class="fas fa-thumbs-up"></i>List of liked posts
+                      <% end %>
+                      
                 　<% end %>
                   
                 　
@@ -42,11 +44,12 @@
                     <tr>
                         <td>
                             <%= link_to user_path(post.user.id) do %>
-                                <%= image_tag post.user.get_profile_image(100,100) %>
+                                <%= image_tag post.user.get_profile_image(100,100),
+                                    style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover;" %>
                                 <%= post.user.name %>
                             <% end %>
                         </td>
-                        <td><%= link_to post.title, post_path(post.id) %></td>
+                        <td><h4><%= link_to post.title, post_path(post.id) %></h4></td>
                      </tr>
                     <% end %>
                 </tbody>
