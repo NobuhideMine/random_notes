@@ -34,7 +34,16 @@
                     <%= image_tag current_user.get_profile_image(70, 70), style: "border-radius: 50%; width: 70px; height: 70px; object-fit: cover;" %>
                     <%= current_user.name %>
                   </li>
-                  
+                  <!--通知機能-->
+                  <li class="nav-item mx-2 my-4">
+                    <%= link_to notifications_path, class: "nav-link" do %>
+                      <% if current_user.notifications.where(checked: false).exists? %>
+                        <i class="fa-sharp fa-solid fa-bell fa-beat" style="color: #ff0000;"></i>
+                      <% else %>
+                        <i class="fa-sharp fa-solid fa-bell"></i>
+                      <% end %>
+                    <% end %>
+                  </li>
                   <li class="nav-item mx-2 my-4">
                     <%= link_to new_post_path, style: "color: black;" do %>
                       <i class="fa-solid fa-file-pen ml-3">Create Post</i>
