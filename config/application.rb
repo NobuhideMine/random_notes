@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Your Ruby code goes here
+
 require_relative "boot"
 
 require "rails/all"

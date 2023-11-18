@@ -1,8 +1,10 @@
+# frozen_string_literal: true
 
+# Your Ruby code goes here
 
-require 'redcarpet'
+require "redcarpet"
 #require 'rouge'
-require 'rouge/plugins/redcarpet'
+require "rouge/plugins/redcarpet"
 
 class CustomRenderHTML < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet
@@ -29,9 +31,7 @@ module MarkdownHelper
       underline:           true,
       quote:               true
     }
-    
-   
-  
+
    renderer = CustomRenderHTML.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
     markdown.render(text)
