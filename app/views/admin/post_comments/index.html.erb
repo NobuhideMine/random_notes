@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+       <div class="col-10">
+           <h3>List of comments</h3>
+            <table class="table mt-3">
+                <tr>
+                    <th>Name</th>
+                    <th>Comment</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <% @post_comments.each do |post_comment| %>
+                <tr>
+                    <td><%= @users.find(post_comment.user_id).name %></td>
+                    <td><%= post_comment.comment %></td>
+                    <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+                    <td>
+                        <%= link_to 'Delete', admin_post_comment_path(post_comment),
+                                    method: :delete,
+                                    data: { confirm: 'Do you really want to delete this?' },
+                                    class: "btn btn-sm btn-danger" %>
+                    </td>
+                </tr>
+                <% end %>
+            </table>
+       </div> 
+    </div>
+</div>

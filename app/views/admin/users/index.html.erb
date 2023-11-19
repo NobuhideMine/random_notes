@@ -1,32 +1,36 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <table class='table'>
-              <thead>
-                <tr>
-                  <th>image</th>
-                  <th>name</th>
-                  <th colspan="3"></th>  
-                </tr>
-              </thead>
-              <tbody>
-                <% @users.each do |user| %>
-                <tr>
-                    <td><%= image_tag user.get_profile_image(100,100)  %></td>
-                    <td><%= user.name %></td>
-                    <td><%= link_to 'Show', admin_user_path(user.id) %></td>
-                    <td>
-                      <% if user.is_active == true %>
-                        有効
-                      <% else %>
-                        無効
+            <div class="table-responsive">
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th>User Index</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <% @users.each do |user| %>
+                        <tr>
+                            <td><%= image_tag user.get_profile_image(70,70)  %></td>
+                            <td><%= user.name %></td>
+                            <td>
+                                <% if user.is_active == true %>
+                                    <strong class="ml-2" style ="color: #32cd32;">有効</strong>
+                                <% else %>
+                                    <strong class="ml-2" style ="color: #dc143c;">無効</strong>
+                                <% end %>
+                            </td>
+                            <td><%= link_to 'Show', admin_user_path(user.id) %></td>
                       <% end %>
-                    </td>
-                <% end %>
-              </tbody>
-            </table>
-            
-            <%= paginate @users %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-center">
+                <%= paginate @users %>
+            </div>
         </div>
     </div>
 </div>

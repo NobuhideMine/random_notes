@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get "homes/top" => "homes#top"
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:index, :show]
+    resources :post_comments, only: [:index, :destroy]
   end
 
   scope module: :public do
