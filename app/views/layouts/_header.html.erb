@@ -15,7 +15,12 @@
                   <% if admin_signed_in? %>
                   <li class="nav-item mx-2 my-4">
                     <%= link_to admin_posts_path, style: "color: black;" do %>
-                      <i class="fa-regular fa-note-sticky">Posts</i
+                      <i class="fa-regular fa-note-sticky">Posts</i>
+                    <% end %>
+                  </li>
+                  <li class="nav-item mx-2 my-4">
+                    <%= link_to admin_post_comments_path, style: "color: black;" do %>
+                      <i class="fa-regular fa-comment">comments</i>
                     <% end %>
                   </li>
                   <li class="nav-item mx-2 my-4">
@@ -29,7 +34,7 @@
                     <% end %>
                   </li>
                           
-                <% elsif user_signed_in? %>
+                  <% elsif user_signed_in? %>
                   <li class="nav-item mx-2 my-4">
                     <%= image_tag current_user.get_profile_image(70, 70), style: "border-radius: 50%; width: 70px; height: 70px; object-fit: cover;" %>
                     <%= link_to current_user.name, user_path(current_user), style: "color:white;" %>

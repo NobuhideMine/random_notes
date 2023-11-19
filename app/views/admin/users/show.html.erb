@@ -10,14 +10,18 @@
                 <% end %>
                 
                 <% if @user.is_active == true %>
-                        有効
+                    <strong class="ml-2" style ="color: #32cd32;">有効</strong>
                 <% else %>
-                        無効
+                    <strong class="ml-2" style ="color: #dc143c;">無効</strong>    
                 <% end %>
               </tr> 
               <tr>
 	              <th>name</th>
 	              <td><%= @user.name %></td>
+              </tr>
+              <tr>
+                  <th>e-mail</th>
+                  <td><%= @user.email %></td>
               </tr>
               <tr>
 	              <th>introduction</th>
@@ -31,11 +35,11 @@
                     <tr>
                         <td>
                             <%= link_to admin_user_path(post.user.id) do %>
-                                <%= image_tag post.user.get_profile_image(100,100) %>
+                                <%= image_tag post.user.get_profile_image(80,80) %>
                                 <%= post.user.name %>
                             <% end %>
                         </td>
-                        <td><%= link_to post.title, admin_post_path(post.id) %></td>
+                        <td><h3><%= link_to post.title, admin_post_path(post.id) %></h3></td>
                     </tr>
                     <% end %>
                 </tbody>

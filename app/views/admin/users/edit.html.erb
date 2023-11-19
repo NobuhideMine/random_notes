@@ -17,11 +17,11 @@
                 <%= f.text_area :introduction, class: "form-control introduction" %>
               </div>
               <div class="form-group">
-                <%= f.label :販売ステータス %></th>
+                <%= f.label :Status %></th>
                 <%= f.radio_button :is_active, true, checked: true %>
-                <%= f.label :is_active, "有効" %>
+                <%= f.label :is_active, "有効", style: "color: #32cd32;" %>
                 <%= f.radio_button :is_active, false %>
-                <%= f.label :is_active, "無効" %>
+                <%= f.label :is_active, "無効", style: "color: #dc143c;" %>
               </div>
               <div class="form-group">
                 <%= f.submit class: 'btn btn-secondary' %>

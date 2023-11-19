@@ -4,7 +4,7 @@
 
 Admin.create!(
    email: "admin@test",
-   password: "testcase"
+   password: "testcase",
 )
 
 
