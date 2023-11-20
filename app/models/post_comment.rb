@@ -5,7 +5,8 @@
 class PostComment < ApplicationRecord
     belongs_to :user
     belongs_to :post
-    belongs_to :admin
+   
+    
     validates :comment, presence:true
     
     has_one :notification, as: :subject, dependent: :destroy

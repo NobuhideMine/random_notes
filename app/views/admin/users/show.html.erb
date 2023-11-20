@@ -36,8 +36,8 @@
                         <td>
                             <%= link_to admin_user_path(post.user.id) do %>
                                 <%= image_tag post.user.get_profile_image(80,80) %>
-                                <%= post.user.name %>
                             <% end %>
+                            <%= post.user.name %>
                         </td>
                         <td><h3><%= link_to post.title, admin_post_path(post.id) %></h3></td>
                     </tr>
