@@ -22,12 +22,9 @@ class Public::UsersController < ApplicationController
     @posts = @user.posts.order(created_at: :desc)
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "You have updated user successfully."
     else
