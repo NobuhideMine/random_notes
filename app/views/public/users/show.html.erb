@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
+            
             <table class='table'>
               <tr>
                   <%= image_tag @user.get_profile_image(80,80),
@@ -14,19 +15,14 @@
                       <%= link_to  favorited_post_user_path(current_user), data: { "turbolinks" => false } do %>
                         <i class="fas fa-thumbs-up"></i>List of Favorited posts
                       <% end %>
-                      
                 　<% end %>
-                  
-                　
               <tr>
 	              <th>name</th>
 	              <td><%= @user.name %></td>
 	              <th>introduction</th>
 	              <td><%= @user.introduction %></td>
               </tr>
-              <tr>
-	              
-              </tr>
+              
               <tr>
                   <th>follows</th>
                   <td><%= link_to @user.followings.count, user_followings_path(@user) %></td>
@@ -54,6 +50,7 @@
                     <% end %>
                 </tbody>
             </table>
+            
         </div>
     </div>
 </div>
