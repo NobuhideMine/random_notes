@@ -20,8 +20,7 @@
 ​
 ## 設計書
 
-ER図
-[![Image from Gyazo](https://i.gyazo.com/da9fe1e48c374c6d1adf8f6d65259b1a.png)](https://gyazo.com/da9fe1e48c374c6d1adf8f6d65259b1a)
+
 ​
 
 ### 機能一覧
