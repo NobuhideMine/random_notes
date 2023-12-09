@@ -3,6 +3,6 @@
     <%= link_to notification.subject.user.name, user_path(notification.subject.user) %>
     <%= link_to 'Post', post_path(notification.subject.post) %>
     commented 
-    <%= " (#{time_ago_in_words(notification.created_at)}ago)" %>
+    <%= " (#{time_ago_in_words(notification.created_at)} ago)" %>
   </div>
 <% end %>
