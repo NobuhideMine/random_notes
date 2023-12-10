@@ -36,7 +36,7 @@
                           
                   <% elsif user_signed_in? %>
                   <li class="nav-item mx-2 my-4">
-                    <%= image_tag current_user.get_profile_image(70, 70), style: "border-radius: 50%; width: 70px; height: 70px; object-fit: cover;" %>
+                    <%= image_tag rails_representation_url(current_user.get_profile_image(70, 70), disposition: :inline), style: "border-radius: 50%; width: 70px; height: 70px; object-fit: cover;" %>
                     <%= link_to current_user.name, user_path(current_user), style: "color:white;" %>
                   </li>
                   <!--通知機能-->
