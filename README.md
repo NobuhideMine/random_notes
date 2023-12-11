@@ -1,5 +1,6 @@
 # RANDOM NOTES
 ​
+[![Image from Gyazo](https://i.gyazo.com/c00ee939f5571f4f3ccf6169d61dea92.png)](https://gyazo.com/c00ee939f5571f4f3ccf6169d61dea92)
 ## サイト概要
 ### サイトテーマ
 日々の学習の記録やアウトプット、備忘録などを投稿できる学習アプリです。   
@@ -20,6 +21,9 @@
 ​
 ## 設計書
 
+### AWS構成図
+
+[![Image from Gyazo](https://i.gyazo.com/39c3e655bebf20c1d2de42ee78515d4e.png)](https://gyazo.com/39c3e655bebf20c1d2de42ee78515d4e)
 ​
 ### 機能一覧
 
