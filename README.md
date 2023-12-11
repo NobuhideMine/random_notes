@@ -18,12 +18,20 @@
 ### 主な利用シーン
 - 学習したことのアウトプット、振り返り、復習時
 - 日記や備忘録として利用
+- 
+
+[![Image from Gyazo](https://i.gyazo.com/04bfed211eb1201d9cb96892ead9a86f.png)](https://gyazo.com/04bfed211eb1201d9cb96892ead9a86f)
+[![Image from Gyazo](https://i.gyazo.com/6603084d922917e7befad677556e4341.png)](https://gyazo.com/6603084d922917e7befad677556e4341)
 ​
 ## 設計書
 
 ### AWS構成図
 
 [![Image from Gyazo](https://i.gyazo.com/39c3e655bebf20c1d2de42ee78515d4e.png)](https://gyazo.com/39c3e655bebf20c1d2de42ee78515d4e)
+
+## ER図
+
+[![Image from Gyazo](https://i.gyazo.com/02bc4101c3ba74c04b93b76cccefb3ce.png)](https://gyazo.com/02bc4101c3ba74c04b93b76cccefb3ce)
 ​
 ### 機能一覧
 
