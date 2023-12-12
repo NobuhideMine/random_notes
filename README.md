@@ -18,7 +18,6 @@
 ### 主な利用シーン
 - 学習したことのアウトプット、振り返り、復習時
 - 日記や備忘録として利用
-- 
 
 [![Image from Gyazo](https://i.gyazo.com/04bfed211eb1201d9cb96892ead9a86f.png)](https://gyazo.com/04bfed211eb1201d9cb96892ead9a86f)
 [![Image from Gyazo](https://i.gyazo.com/6603084d922917e7befad677556e4341.png)](https://gyazo.com/6603084d922917e7befad677556e4341)
