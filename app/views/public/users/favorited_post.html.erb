@@ -13,7 +13,7 @@
                                 <%= post.user.name %>
                             <% end %>
                         </td>
-                        <td><%= link_to post.title, post_path(post.id) %></td>
+                        <td><h4><%= link_to post.title, post_path(post.id) %></h4></td>
                         <td>
                             <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
                             <%= post.favorites.count %>
