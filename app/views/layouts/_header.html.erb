@@ -1,104 +1,104 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-light border-bottom" style="background-color: #c7b370; color: #eaedf7;">
+    <nav class="navbar navbar-expand-md navbar-light border-bottom" style="background-color: #c7b370; color: #eaedf7;">
         <div class="container-fluid ">
-          <a class="navbar-brand" href="<%= root_path %>" style="color: black;">
-              <div style= "font-family: Franklin Gothic;" >RANDOM NOTES</div>
-          </a>
+            <a class="navbar-brand" href="<%= root_path %>" style="color: black;">
+                <div style= "font-family: Franklin Gothic;" >RANDOM NOTES</div>
+            </a>
           
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-          </button>
+            </button>
           
-          <div class="collapse navbar-collapse " id="navbarNavDropdown">
+            <div class="collapse navbar-collapse " id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                   <!--admin -->
-                  <% if admin_signed_in? %>
-                  <li class="nav-item mx-2 my-4">
-                    <%= link_to admin_posts_path, style: "color: black;" do %>
-                      <i class="fa-regular fa-note-sticky">Posts</i>
-                    <% end %>
-                  </li>
-                  <li class="nav-item mx-2 my-4">
-                    <%= link_to admin_post_comments_path, style: "color: black;" do %>
-                      <i class="fa-regular fa-comment">comments</i>
-                    <% end %>
-                  </li>
-                  <li class="nav-item mx-2 my-4">
-                    <%= link_to  admin_users_path, style: "color: black;" do %>
-                      <i class="fa-solid fa-user-pen">Users</i>
-                    <% end %>
-                  </li>
-                  <li class="nav-item mx-2 my-4">
-                    <%= link_to  destroy_admin_session_path, method: :delete, style: "color: black;"  do %>
-                      <i class="fa-solid fa-person-booth">Logout</i>
-                    <% end %>
-                  </li>
-                          
-                  <% elsif user_signed_in? %>
-                  <li class="nav-item mx-2 my-4">
-                    <%= image_tag current_user.get_profile_image(70, 70), style: "border-radius: 50%; width: 70px; height: 70px; object-fit: cover;" %>
-                    <%= link_to current_user.name, user_path(current_user), style: "color:white;" %>
-                  </li>
-                  <!--通知機能-->
-                  <li class="nav-item mx-2 my-4">
-                    <%= link_to notifications_path, class: "nav-link" do %>
-                      <% if current_user.notifications.where(checked: false).exists? %>
-                        <i class="fa-sharp fa-solid fa-bell fa-beat" style="color: #ff0000;"></i>
-                      <% else %>
-                        <i class="fa-sharp fa-solid fa-bell"></i>
-                      <% end %>
-                    <% end %>
-                  </li>
-                  <li class="nav-item mx-2 my-4">
-                    <%= link_to new_post_path, style: "color: black;" do %>
-                      <i class="fa-solid fa-file-pen ml-3">Create Post</i>
-                    <% end %>  
-                  </li>
-                  <li class="nav-item mx-2 my-4">
-                    <%= link_to users_path, style: "color: black;" do %>
-                      <i class="fa-solid fa-user-pen">Users</i>
-                    <% end %>
+                    <% if admin_signed_in? %>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to admin_posts_path, style: "color: black;" do %>
+                            <i class="fa-regular fa-note-sticky">Posts</i>
+                        <% end %>
                     </li>
-                <li class="nav-item mx-2 my-4">
-                  <%= link_to posts_path, style: "color: black;" do %>
-                    <i class="fa-regular fa-note-sticky">Posts</i>
-                  <% end %>
-                </li>
-                <li class="nav-item mx-2 my-4">
-                  <%= link_to destroy_user_session_path, method: :delete, style: "color: black;" do %>
-                    <i class="fa-solid fa-person-booth">Logout</i>
-                  <% end %>
-                </li>
-              <!--user login時-->  
-              <% else %>
-                <li class="nav-item mx-2 my-4">
-                  <%= link_to about_path, style: "color: black;" do %>
-                    <i class="fa-solid fa-circle-exclamation">About</i>
-                  <% end %>
-                </li>
-                <li class="nav-item mx-2 my-4">
-                  <%= link_to users_guest_sign_in_path, method: :post, style: "color: black;" do %>
-                    <i class="fa-solid fa-person">Guest login</i>
-                  <% end %>
-                </li>
-                <li class="nav-item mx-2 my-4">
-                  <%= link_to new_user_registration_path, style: "color: black;" do %>
-                    <i class="fa-solid fa-user-plus">User Signup</i>
-                  <% end %>
-                </li>
-                <li class="nav-item mx-2 my-4">
-                  <%= link_to new_user_session_path, style: "color: black;" do %>
-                    <i class="fa-solid fa-person-walking-luggage">User login</i>
-                  <% end %>
-                </li>
-                <li class="nav-item mx-2 my-4">
-                  <%= link_to new_admin_session_path, style: "color: black;" do %>
-                    <i class="fa-solid fa-screwdriver-wrench">Admin login</i>
-                  <% end %>
-                </li>
-              <% end %>  
-              </ul>
-          </div>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to admin_post_comments_path, style: "color: black;" do %>
+                            <i class="fa-regular fa-comment">comments</i>
+                        <% end %>
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to  admin_users_path, style: "color: black;" do %>
+                            <i class="fa-solid fa-user-pen">Users</i>
+                        <% end %>
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to  destroy_admin_session_path, method: :delete, style: "color: black;"  do %>
+                            <i class="fa-solid fa-person-booth">Logout</i>
+                        <% end %>
+                    </li>
+                          
+                    <% elsif user_signed_in? %>
+                    <li class="nav-item mx-2 my-4">
+                        <%= image_tag current_user.get_profile_image(70, 70), style: "border-radius: 50%; width: 70px; height: 70px; object-fit: cover;" %>
+                        <%= link_to current_user.name, user_path(current_user), style: "color:white;" %>
+                    </li>
+                    <!--通知機能-->
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to notifications_path, class: "nav-link" do %>
+                            <% if current_user.notifications.where(checked: false).exists? %>
+                                <i class="fa-sharp fa-solid fa-bell fa-beat" style="color: #ff0000;"></i>
+                            <% else %>
+                                <i class="fa-sharp fa-solid fa-bell"></i>
+                            <% end %>
+                        <% end %>
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to new_post_path, style: "color: black;" do %>
+                            <i class="fa-solid fa-file-pen ml-3">Create Post</i>
+                        <% end %>  
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to users_path, style: "color: black;" do %>
+                            <i class="fa-solid fa-user-pen">Users</i>
+                        <% end %>
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to posts_path, style: "color: black;" do %>
+                            <i class="fa-regular fa-note-sticky">Posts</i>
+                        <% end %>
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to destroy_user_session_path, method: :delete, style: "color: black;" do %>
+                            <i class="fa-solid fa-person-booth">Logout</i>
+                        <% end %>
+                    </li>
+                    <!--user login時-->  
+                    <% else %>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to about_path, style: "color: black;" do %>
+                            <i class="fa-solid fa-circle-exclamation">About</i>
+                        <% end %>
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to users_guest_sign_in_path, method: :post, style: "color: black;" do %>
+                            <i class="fa-solid fa-person">Guest login</i>
+                        <% end %>
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to new_user_registration_path, style: "color: black;" do %>
+                            <i class="fa-solid fa-user-plus">User Signup</i>
+                        <% end %>
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to new_user_session_path, style: "color: black;" do %>
+                            <i class="fa-solid fa-person-walking-luggage">User login</i>
+                        <% end %>
+                    </li>
+                    <li class="nav-item mx-2 my-4">
+                        <%= link_to new_admin_session_path, style: "color: black;" do %>
+                            <i class="fa-solid fa-screwdriver-wrench">Admin login</i>
+                        <% end %>
+                    </li>
+                    <% end %>  
+                </ul>
+            </div>
         </div>
     </nav>
 </header>

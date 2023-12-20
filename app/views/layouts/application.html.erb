@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RandomNotes</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <head>
+        <title>RandomNotes</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <script src="https://kit.fontawesome.com/771f6f27c6.js" crossorigin="anonymous"></script>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <script src="https://kit.fontawesome.com/771f6f27c6.js" crossorigin="anonymous"></script>
+        <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh; /* 画面の高さいっぱいに設定 */
-      }
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh; /* 画面の高さいっぱいに設定 */
+            }
 
-      footer {
-        background-color: #c7b370;
-        padding: 15px; /* 適切な余白を設定 */
-        text-align: center;
-      }
+            footer {
+                background-color: #c7b370;
+                padding: 15px; /* 適切な余白を設定 */
+                text-align: center;
+            }
       
-      pre {
-        background-color: black;
-        color: #f8f8ff;
-      }
+            pre {
+                background-color: black;
+                color: #f8f8ff;
+            }
       
-    </style>
-  </head>
+        </style>
+    </head>
 
-  <body>
-    <%= render 'layouts/header' %>
-    <%= flash[:notice] %>
-    <%= yield %>
+    <body>
+        <%= render 'layouts/header' %>
+        <%= flash[:notice] %>
+        <%= yield %>
     
-    <%= render 'layouts/footer' %>
-  </body>
+        <%= render 'layouts/footer' %>
+    </body>
 </html>

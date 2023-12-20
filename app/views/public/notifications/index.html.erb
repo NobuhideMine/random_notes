@@ -3,11 +3,10 @@
           <div class="col-md-10">
               <h4>Notification</h4>
               <% if @notifications.present? %>
-                <%#s= link_to "全削除",notifications_path(@notifications), method: :delete,class:"btn btn-light" %>
-                <%= link_to 'Delete All Notifications', delete_notifications_path, method: :delete %>
-                <% @notifications.each do |notification| %>
-                    <%= render "#{notification.action_type}", notification: notification %>
-                <% end %>
+                  <%= link_to 'Delete All Notifications', delete_notifications_path, method: :delete %>
+                  <% @notifications.each do |notification| %>
+                      <%= render "#{notification.action_type}", notification: notification %>
+                  <% end %>
               <% else %>
                     No notifications
               <% end %>

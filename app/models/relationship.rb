@@ -11,7 +11,7 @@ class Relationship < ApplicationRecord
     after_create_commit :create_notifications
 
   private
-    def create_notifications
-        Notification.create(subject: self, user: followed, action_type: :followed_me)
-    end
+  def create_notifications
+      Notification.create(subject: self, user: followed, action_type: :followed_me)
+  end
 end

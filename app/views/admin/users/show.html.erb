@@ -2,31 +2,31 @@
     <div class="row">
         <div class="col-8">
             <table class='table'>
-              <tr>
-                <%= image_tag @user.get_profile_image(80,80) %>
+                <tr>
+                    <%= image_tag @user.get_profile_image(80,80) %>
               
-                <%= link_to edit_admin_user_path(@user.id), class: "btn btn-outline-secondary ml-3" do %>
-                    <i class="fas fa-user-cog"></i>
-                <% end %>
+                    <%= link_to edit_admin_user_path(@user.id), class: "btn btn-outline-secondary ml-3" do %>
+                        <i class="fas fa-user-cog"></i>
+                    <% end %>
                 
-                <% if @user.is_active == true %>
-                    <strong class="ml-2" style ="color: #32cd32;">有効</strong>
-                <% else %>
-                    <strong class="ml-2" style ="color: #dc143c;">無効</strong>    
-                <% end %>
-              </tr> 
-              <tr>
-	              <th>name</th>
-	              <td><%= @user.name %></td>
-              </tr>
-              <tr>
-                  <th>e-mail</th>
-                  <td><%= @user.email %></td>
-              </tr>
-              <tr>
-	              <th>introduction</th>
-	              <td><%= @user.introduction %></td>
-              </tr>
+                    <% if @user.is_active == true %>
+                        <strong class="ml-2" style ="color: #32cd32;">有効</strong>
+                    <% else %>
+                        <strong class="ml-2" style ="color: #dc143c;">無効</strong>    
+                    <% end %>
+                </tr> 
+                <tr>
+	                <th>name</th>
+	                <td><%= @user.name %></td>
+                </tr>
+                <tr>
+                    <th>e-mail</th>
+                    <td><%= @user.email %></td>
+                </tr>
+                <tr>
+	                <th>introduction</th>
+	                <td><%= @user.introduction %></td>
+                </tr>
             </table>
             
             <table class="table table-hover">
