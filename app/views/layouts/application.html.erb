@@ -31,6 +31,14 @@
     <%= flash[:notice] %>
     <%= yield %>
     
+    <span id="back">
+      <a href="#">
+        <img src="images/arrow.png" alt="">
+      </a>
+    </span>
+    
     <%= render 'layouts/footer' %>
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/script.js"></script>
   </body>
 </html>
